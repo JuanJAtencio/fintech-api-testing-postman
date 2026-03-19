@@ -1,103 +1,62 @@
-# Fintech API Testing – Postman Portfolio
+# Fintech API Testing - Postman + Newman
 
-## 📌 Descripción del proyecto
+## 📌 Description
 
-Proyecto de testing de APIs realizado con **Postman**, orientado a escenarios **financieros / fintech**.
+API testing project simulating fintech scenarios using Postman and Newman.
 
-El objetivo es demostrar habilidades como **QA Analyst** en:
+Includes:
 
-* Testing funcional de APIs REST
-* Manejo de autenticación con token (Bearer)
-* Uso de variables de entorno
-* Validación de respuestas (assertions)
-* Análisis de escenarios negativos y de seguridad
-
-La API utilizada es **FakeStore API**, adaptada conceptualmente para simular una billetera digital, donde:
-
-* Usuarios representan clientes
-* Carts / Products representan movimientos o débitos
+* Authentication (token-based)
+* User data validation
+* Transactions validation
+* Negative testing scenarios
 
 ---
 
-## 🛠️ Tecnologías y herramientas
+## 🛠️ Technologies
 
-* Postman (última versión)
-* API REST pública: FakeStore API
-* JavaScript (scripts de validación en Postman)
+* Postman
+* Newman (CLI)
+* JavaScript (Tests)
+* Git & GitHub
 
 ---
 
-## 📂 Estructura del proyecto
+## 🚀 How to Run
 
-```
-Fintech_API_Testing_Postman
-├── Auth
-│   └── Login – Get Token
-├── Users
-│   └── Get User Data
-├── Transactions
-│   └── Get Transactions (User Carts)
-├── Negative Scenarios
-│   ├── Get User – Invalid Token
-│   ├── Get User – No Token
-│   └── Get User – Invalid User ID
-└── Environment
-    └── Fintech-Env
+```bash
+git clone https://github.com/JuanJAtencio/fintech-api-testing-postman.git
+cd fintech-api-testing-postman
+npx newman run "Fintech API Testing - Postman Portfolio.postman_collection.json" -e Fintech-Env.postman_environment.json
 ```
 
 ---
 
-## 🔐 Autenticación
+## 📊 HTML Report
 
-* Tipo: **Bearer Token**
-* El token se obtiene mediante el endpoint de login y se guarda automáticamente como variable de entorno (`authToken`).
+```bash
+npx newman run "Fintech API Testing - Postman Portfolio.postman_collection.json" -e Fintech-Env.postman_environment.json -r htmlextra
+```
 
----
+After execution, open:
 
-## ✅ Escenarios testeados
-
-### Escenarios positivos
-
-* Login exitoso y obtención de token
-* Consulta de datos de usuario autenticado
-* Consulta de movimientos (transacciones simuladas)
-
-### Escenarios negativos
-
-* Acceso con token inválido
-* Acceso sin token
-* Consulta de usuario inexistente
+```
+newman/*.html
+```
 
 ---
 
-## 🧪 Tipos de validaciones realizadas
+## ✅ Features
 
-* Status codes (200, 201, 401, 403, 404)
-* Presencia de campos obligatorios en la respuesta
-* Validación de integridad de datos por usuario
-* Manejo correcto de errores
-
----
-
-## ⚠️ Notas QA importantes
-
-* Algunos endpoints de la API FakeStore **no aplican validaciones de autenticación estrictas**.
-* Estos comportamientos fueron documentados como **hallazgos QA**, demostrando análisis crítico del sistema bajo prueba.
+* Environment-based configuration
+* Authentication handling (token storage)
+* Automated assertions
+* Error handling for non-JSON responses
+* CLI execution with Newman
+* HTML reporting
 
 ---
 
-## 🚀 Cómo ejecutar el proyecto
+## 🎯 Author
 
-1. Importar la collection en Postman
-2. Importar el environment `Fintech-Env`
-3. Seleccionar el environment en Postman
-4. Ejecutar el request de **Login**
-5. Ejecutar el resto de los requests (Users, Transactions, Negative Scenarios)
-
----
-
-## 👤 Autor
-
-**Juan Atencio**
-QA Analyst | QA Automation (Junior / Semi-Senior)
-Perfil orientado a proyectos financieros y fintech
+Juan Atencio
