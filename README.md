@@ -2,7 +2,7 @@
 
 [![API Tests](https://github.com/JuanJAtencio/fintech-api-testing-postman/actions/workflows/api-tests.yml/badge.svg)](https://github.com/JuanJAtencio/fintech-api-testing-postman/actions/workflows/api-tests.yml)
 
-API testing portfolio project that automates authentication, user and transaction scenarios against [Fake Store API](https://fakestoreapi.com/). It demonstrates functional and negative testing, reusable environments, command-line execution, HTML reporting and continuous integration.
+API testing portfolio project that automates authentication, user and transaction scenarios against a deterministic local mock API. It demonstrates functional and negative testing, reusable environments, command-line execution, HTML reporting and continuous integration.
 
 ## Test coverage
 
@@ -50,7 +50,7 @@ npm install
 npm test
 ```
 
-No global Newman installation is required. The scripts use the project dependency declared in `package.json`.
+No global Newman installation or external API is required. The test command starts the local mock, executes Newman and closes the server automatically.
 
 ## Generate the HTML report
 

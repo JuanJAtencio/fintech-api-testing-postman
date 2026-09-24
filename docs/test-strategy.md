@@ -26,7 +26,6 @@ Validate the principal API behaviours of a simulated fintech flow: authenticatio
 
 Entry criteria:
 
-- Fake Store API is available.
 - Project dependencies are installed with `npm ci` or `npm install`.
 
 Exit criteria:
@@ -38,10 +37,10 @@ Exit criteria:
 
 ## Known limitations
 
-- Fake Store API is a public mock API and not a real banking platform.
-- The user and cart endpoints do not enforce the authentication token.
-- A non-existent user returns `200` with `null` instead of `404`; the suite asserts the observed API contract and documents the inconsistency.
-- Performance thresholds are intentionally excluded because response times depend on a third-party public service.
+- The local service is a controlled mock and not a real banking platform.
+- Token expiration, authorization roles and persistence are outside the mock's scope.
+- A non-existent user intentionally returns `200` with `null` to preserve the documented portfolio contract.
+- Performance thresholds are excluded because this suite focuses on functional API automation.
 
 ## Risks not covered
 
